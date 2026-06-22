@@ -14,6 +14,7 @@ FROM base AS deps
 
 COPY package.json pnpm-lock.yaml ./
 
+RUN npm config set registry https://mirrors.cloud.tencent.com/npm/ && pnpm config set registry https://mirrors.cloud.tencent.com/npm/
 RUN pnpm install --frozen-lockfile
 
 FROM base AS builder
